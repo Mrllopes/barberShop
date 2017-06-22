@@ -1,0 +1,29 @@
+<md-dialog aria-label="Product">
+    <form ng-cloak>
+        <md-dialog-content>
+            <md-content layout-gt-xs="row" layout-align-gt-xs="center start" layout="column" layout-align="center center" layout-padding>
+                <div flex-xs flex-gt-xs="50">
+                    <img ng-src="./app/img/product-default.jpg" class="img-product-dialog">
+                </div>
+                <div flex-xs flex-gt-xs="50" class="width-100">
+                    <h4 class="no-margin-bottom">{{ product.name }}</h4>
+                    <h4 class="no-margin-top">{{ product.price | currency: 'R$ '}}</h4>
+                    <span>{{ product.description }}</span>
+                    </br>
+                    </br>
+                    <span ng-if="product.quantity" class="margin-top-shop">Quantidade: {{ product.quantity }}</span>
+                    <span ng-if="!product.quantity">Indisponível</span>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()" class="md-raised md-warn">
+                Cancelar
+            </md-button>
+            <md-button ng-click="addProductCart()" class="md-raised md-primary" ng-if="product.quantity">
+                Comprar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

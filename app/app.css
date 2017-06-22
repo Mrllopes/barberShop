@@ -1,0 +1,97 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+h3 {
+    color: #555555;
+}
+
+
+.html {
+    background: url('img/bg-image.jpg');
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100% !important;
+    overflow: hidden;
+}
+
+.vertical-align {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.img-services {
+    max-width: 350px;
+}
+
+.font-weight-900{
+    font-weight: 900 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.no-paggind {
+    padding: 0 !important;
+}
+
+md-dialog {
+    min-width: 30% !important;
+    max-width: 750px !important;
+}
+
+.abbreviation {
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar {
+	width: 8px;
+    height: 8px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #d5dee1;
+}

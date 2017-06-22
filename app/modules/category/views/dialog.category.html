@@ -1,0 +1,36 @@
+<md-dialog aria-label="Produto">
+    <form name="categoryForm" ng-submit="save(category)" ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{title}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <i class="material-icons">close</i>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout-padding>
+                <div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label class="color-input-product">Descrição</label>
+                            <input class="color-input-product" ng-model="category.description" name="description" maxlength="15" minlength="3" ng-disabled="edit" required>
+                        </md-input-container>
+                    </div>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="submit" class="md-raised md-primary" ng-disabled="categoryForm.$invalid" ng-if="!edit">
+                Salvar
+            </md-button>
+            <md-button ng-click="changeOp()" class="md-raised bottom-edit" ng-if="edit">
+                Editar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

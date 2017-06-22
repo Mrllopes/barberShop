@@ -1,0 +1,27 @@
+<md-dialog aria-label="Login" class="width-login">
+    <form ng-cloak>
+        <md-dialog-content>
+            <md-content class="input-container-no-margin" layout-gt-sm="column" layout-align-gt-sm="center center" layout="column" layout-align="center center" layout-padding>
+                 <div class="site-login" flex="90"></div>
+                <span flex="90" class="login-barberShop">BarberShop</span>
+                <md-input-container flex="90" class="no-padding">
+                    <label>Login</label>
+                    <input ng-model="user.login">
+                </md-input-container>
+                <md-input-container flex="90" class="no-padding">
+                    <label>Senha</label>
+                    <input ng-model="user.password" type="password" >
+                </md-input-container>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()" class="md-raised md-warn">
+                Cancelar
+            </md-button>
+            <md-button ng-click="checkLogin(user)" class="md-raised md-primary">
+                Entrar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog> 

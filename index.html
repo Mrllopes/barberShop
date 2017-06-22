@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html class="bg-app" id="html">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.ico">
+  <base href="/">
+  <script src="dist/bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0/angular-moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/pt-br.js"></script>
+  <link rel="stylesheet" href="dist/modules.css">
+
+  <link rel="stylesheet" href="dist/app.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+  <title>BarberShop</title>
+
+</head>
+
+<body ng-app="barberShop" layout="row" layout-align="center center" class="bg-image" id="view">
+  <div ng-controller="menuController as mc" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--waterfall site-header ">
+      <div class="mdl-layout__header-row site-logo-row">
+        <span class="mdl-layout__title ">
+            <div class="site-logo"></div>
+            <span class="site-description">BarberShop</span>
+        </span>
+      </div>
+      <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('/')">Home</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('loja')" ng-if="!mc.userLogged || mc.userLogged.access_level == 2">Loja</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('carrinho')" ng-if="!mc.userLogged || mc.userLogged.access_level == 2">Carrinho({{mc.cartNum}})</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('produto')" ng-if="mc.userLogged && mc.userLogged.access_level == 1">Produtos</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('categoria')" ng-if="mc.userLogged && mc.userLogged.access_level == 1">Categorias</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.openLogin($event)" ng-if="!mc.userLogged">Entrar</a>
+          <a class="mdl-navigation__link cursor-pointer" ng-click="mc.logout($event)" ng-if="mc.userLogged">{{mc.userLogged.login}} (Sair)</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('/')">Home</a>
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('loja')" ng-if="!mc.userLogged || mc.userLogged.access_level == 2">Loja</a>
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('carrinho')" ng-if="!mc.userLogged || mc.userLogged.access_level == 2">Carrinho({{mc.cartNum}})</a>
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('produto')" ng-if="mc.userLogged && mc.userLogged.access_level == 1">Produtos</a>
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.goTo('categoria')" ng-if="mc.userLogged && mc.userLogged.access_level == 1">Categorias</a>
+        <a class="mdl-navigation__link cursor-pointer" ng-click="mc.openLogin($event)">Entrar</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div ng-view flex="100" class="ng-view-overflow" id="ngview"></div>
+    </main>
+  </div>
+
+  <!--<div class="full-width" ng-include="'./app/modules/menu/views/menu.html'" flex="100"></div>-->
+  <!--<div ng-view flex="100" class="full-height ng-view-overflow animated fadeIn animated-no-fill-mode" id="ngview"></div>-->
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<div class="animated fadeIn margin-bottom-product">
+    <div layout="row" layout-align="center center" class="text-center margin-product">
+        <div flex-xs="100" flex="100">
+            <span class="product-vertical-align font-product">Produtos</span>
+            <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="pc.openRegister($event, pc.product, 0)">
+                <md-icon>
+                    <i class="material-icons">add</i>
+                </md-icon>
+            </md-button>
+        </div>
+    </div>
+    <div layout-gt-xs="row" layout-align-gt-xs="center start" layout="column" ng-cloak>
+        <md-list flex="100" flex-gt-xs="85" class="md-dense background-cart no-paggind">
+            <md-list-item class="md-3-line cart-border-top cursor-pointer" data-ng-repeat="product in pc.products | orderBy: 'name' | limitTo: pc.limit" ng-if="pc.products.length"
+                 ng-click="pc.openRegister($event, product, 1)">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align-gt-xs="center center" layout-align="center stretch">
+                    <div flex-xs flex-gt-xs="5" class="text-right margin-cart-small-screen" hide-gt-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="pc.remove($event, product)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                    <div flex-xs flex-gt-xs="5" class="text-center">
+                        <img hide-xs ng-src="./app/img/product-default.jpg" class="img-product-cart">
+                    </div>
+                    <h3 flex-gt-xs="75" flex="100" class="name-product margin-cart-small-screen align-product">{{ product.name }}</h3>
+                    <h3 flex-gt-xs="20" flex="100" class="price-cart text-right margin-cart-small-screen">{{ product.price | currency: 'R$ '}}</h3>
+                    <div flex-xs flex-gt-xs="5" class="text-right" hide-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="pc.remove($event, product)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top" ng-if="!pc.products.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center center">
+                    <h3 flex-gt-xs="100" flex="100" class="name-product text-center">Carrinho vazio</h3>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top cursor-pointer" ng-click="pc.limit = pc.limit + 5" ng-if="pc.limit < pc.products.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center stretch">
+                    <h3 flex-gt-xs="100" flex="100" class="price-cart text-center">Ver mais</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>

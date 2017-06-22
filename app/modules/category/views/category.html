@@ -1,0 +1,42 @@
+<div class="animated fadeIn margin-bottom-product">
+    <div layout="row" layout-align="center center" class="text-center margin-product">
+        <div flex-xs="100" flex="100">
+            <span class="product-vertical-align font-product">Categorias</span>
+            <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="cc.openRegister($event, cc.category, 0)">
+                <md-icon>
+                    <i class="material-icons">add</i>
+                </md-icon>
+            </md-button>
+        </div>
+    </div>
+    <div layout-gt-xs="row" layout-align-gt-xs="center start" layout="column" ng-cloak>
+        <md-list flex="100" flex-gt-xs="50" class="md-dense background-cart no-paggind">
+            <md-list-item class="md-3-line cart-border-top cursor-pointer" data-ng-repeat="category in cc.categorys | orderBy: 'description' | limitTo: cc.limit" ng-if="cc.categorys.length"
+                 ng-click="cc.openRegister($event, category, 1)">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align-gt-xs="center center" layout-align="center stretch">
+                    <div flex-xs flex-gt-xs="5" class="text-right margin-cart-small-screen" hide-gt-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="cc.remove($event, category)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                    <h3 flex-gt-xs="90" flex="100" class="name-product margin-cart-small-screen align-product">{{ category.description }}</h3>
+                    <div flex-xs flex-gt-xs="5" class="text-right" hide-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="cc.remove($event, category)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top" ng-if="!cc.categorys.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center center">
+                    <h3 flex-gt-xs="100" flex="100" class="name-product text-center">Carrinho vazio</h3>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top cursor-pointer" ng-click="cc.limit = cc.limit + 5" ng-if="cc.limit < cc.categorys.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center stretch">
+                    <h3 flex-gt-xs="100" flex="100" class="price-cart text-center">Ver mais</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.margin-bottom-product {
+    margin-bottom: 3em;
+}
+
+.font-product {
+    font-size: 34px;
+}
+
+.product-vertical-align {
+    vertical-align: middle;
+}
+
+.margin-product {
+    margin: 24px 0;
+}
+
+.color-input-product {
+    color: #4d6570 !important;
+}
+.color-input-product > md-select-value > span {
+    color: #4d6570 !important;
+}
+
+.bottom-edit {
+    background-color: #00C853 !important;
+    color: #fff !important;
+}

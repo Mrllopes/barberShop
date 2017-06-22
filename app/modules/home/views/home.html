@@ -1,0 +1,173 @@
+<div class="content-about animated fadeIn">
+    <div class="text-center">
+        <h3>Sobre</h3>
+        <p class="text-about">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+            Ipsum.
+        </p>
+    </div>
+</div>
+<div class="content-services">
+    <div class="text-center">
+        <h3>Serviços</h3>
+        <div class="md-padding " layout-xs="column" layout="row" layout-align="center center">
+            <div flex-xs flex-gt-xs="100" layout-xs="column" layout="row">
+                <md-card class="card-color width-card margin-servives" ng-repeat="service in hc.services">
+                    <img ng-src="{{ service.img }}" class="md-card-image img-services" alt="Washed Out">
+                    <md-card-title class="max-heigth">
+                        <span class="md-headline">{{ service.service }}</span>
+                    </md-card-title>
+                    <md-card-content>
+                        <p>
+                            {{ service.description }}
+                        </p>
+                    </md-card-content>
+                </md-card>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-about">
+    <div class="text-center">
+        <div class="md-padding" layout-xs="column" layout="row">
+            <div flex-xs flex-gt-xs="70" layout-xs="column" layout="row" class="margin-barbers">
+                <md-card class="card-color no-shadow" ng-repeat="barber in hc.barbers">
+                    <img ng-src="{{barber.img}}" class="md-card-image image-barbers" alt="Washed Out">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ barber.nome }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="site-content">
+    <div class="mdl-grid site-max-width">
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content">
+            <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">About</h1>
+            </div>
+            <div class="mdl-card__media"><img class="article-image" src="img/about.jpg" border="0" alt="About">
+            </div>
+            <div class="mdl-grid site-copy">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+                    <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches
+                            to corporate strategy foster collaborative thinking to further the overall value proposition.
+                            Organically grow the holistic world view of disruptive innovation via workplace diversity and
+                            empowerment.</p>
+                        <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the
+                            day, going forward, a new normal that has evolved from generation X is on the runway heading
+                            towards a streamlined cloud solution. User generated content in real-time will have multiple
+                            touchpoints for offshoring.</p>
+                    </div>
+
+
+                    <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Mission</h3>
+                    <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                        <p>
+                            Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with
+                            additional clickthroughs from DevOps. Nanotechnology immersion along the information highway
+                            will close the loop on focusing solely on the bottom line.
+                        </p>
+                    </div>
+
+
+                    <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Team</h3>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col">
+                            <div class="demo-card-image mdl-card mdl-shadow--2dp person1">
+                                <div class="mdl-card__title mdl-card--expand"></div>
+                                <div class="mdl-card__actions">
+                                    <span class="demo-card-image__filename">John Doe</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--4-col">
+                            <div class="demo-card-image mdl-card mdl-shadow--2dp person2">
+                                <div class="mdl-card__title mdl-card--expand"></div>
+                                <div class="mdl-card__actions">
+                                    <span class="demo-card-image__filename">Gary Doe</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<div layout-align="center center" layout-gt-sm="row" layout="column" flex style="height:100%" >
+    <md-card class="animated fadeIn animation-card login-card max-width-login" flex-gt-sm="30" flex="100">
+        <img src="./app/img/logo.png" class="md-card-image logo-login animated" alt="Logo" ng-click="lc.easter()">
+        <md-card-title>
+            <md-card-title-text class="bem-vindo">
+                <span class="md-headline welcome">Sinergia</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions>
+            <form ng-submit="lc.login(lc.user)" class="login-input" layout="column" autocomplete="off" layout-align="start">
+                <md-input-container class="login-input-container" md-no-float>
+                    <input type="email" ng-model="lc.user.email" class="no-margin login-input-color" placeholder="E-mail" autocomplete="off">
+                </md-input-container>
+                <md-input-container class="no-margin login-input-container" md-no-float>
+                    <input type="password" ng-model="lc.user.senha" class="login-input-color" placeholder="Senha" autocomplete="off">
+                </md-input-container>
+                <md-input-container ng-if="lc.tentativas > 4">
+                    <div vc-recaptcha key="'6Lcdzw4UAAAAAKwy_gDfp80CdWrUG7bZLU31AwlG'" ng-model="lc.user.captcha" class="captcha" on-create="lc.onWidgetCreate(widgetId)"></div>
+                </md-input-container>
+                <md-button class="md-raised md-primary btn-login login-button-margin" type="submit">Acessar</md-button>
+                <md-input-container class="no-margin check-manter-conectado">
+                    <md-checkbox class="check-login" ng-model="lc.user.rememberSession" aria-label="Lembrar Usuário">
+                        Manter Conectado
+                    </md-checkbox>
+                </md-input-container>
+                <md-button class="md-raised md-primary login-button-margin btn-esqueceu" ng-click="lc.esqueceuSenha($event)"><i>Esqueceu sua senha?</i></md-button>
+            </form>
+        </md-card-actions>
+    </md-card>
+    <md-card class="animated fadeIn animation-card info-card-login max-width-login-proposta" flex-gt-sm="60" flex="100" layout="column" layout-align="start stretch" ng-if="lc.quantidade_total>=lc.minimo">
+        <div layout="start">
+            <h1 class="interligando-div">Interligando o Brasil</h1>
+        </div>
+        <div>
+            <h2 class="text-center numero-barber-shop">já são {{lc.motoristas}} possibilidades de sinergia</h2>
+        </div>
+        <div class="div-info-login animated fadeIn delay-panel" layout="row" ng-repeat="proposta in lc.propostas_view" ng-show="$index < 5" >
+            <div class="estados-div-info-login" flex="20" layout="row" layout-align="space-around center">
+                <span class="estado-info-login">{{proposta.origem}}</span>
+                <md-icon md-font-set="material-icons" class="material-icons no-margin" md-svg-src="/app/img/keyboard-right-arrow.svg"></md-icon>
+                <span class="estado-info-login">{{proposta.destino}}</span>
+            </div>
+            <div class="mercadorias-div-info-login" flex="70" layout="column">
+                <div flex="50" layout="row" layout-align="space-between center">
+                    <div class="info-mercadoria-solo" layout="row" layout-align="start center" ng-repeat="mercadoria in proposta.mercadoria |orderBy: '-quantidade' |limitTo : 2">
+                        <div>{{mercadoria.quantidade}}</div>
+                        <span>{{mercadoria.descricao}}</span>
+                    </div>
+                </div>
+                <div flex="50" layout="row" layout-align="space-between center">
+                    <div class="info-mercadoria-solo" layout="row" layout-align="start center" ng-repeat="mercadoria in proposta.mercadoria |orderBy: '-quantidade'|limitTo : 2:2">
+                        <div>{{mercadoria.quantidade}}</div>
+                        <span>{{mercadoria.descricao}}</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="restantes-div-info-login" flex="10" layout="row" layout-align="center center" ng-if="proposta.mais>0">
+                +{{proposta.mais}}
+            </div>
+        </div>
+        <md-button class="ver-mais-login" flex="100" ng-show="lc.quantidade_inter > 5" ng-click ="lc.verMais()">Ver mais</md-button>
+    </md-card>
+</div>-->

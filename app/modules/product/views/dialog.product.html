@@ -1,0 +1,59 @@
+<md-dialog aria-label="Produto">
+    <form name="productForm" ng-submit="save(product)" ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{title}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <i class="material-icons">close</i>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout-padding>
+                <div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label class="color-input-product">Nome do produto</label>
+                            <input class="color-input-product" ng-model="product.name" name="name" maxlength="30" minlength="3" ng-disabled="edit" required>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label class="color-input-product">Preço</label>
+                            <input class="color-input-product" type="text" name="price" ng-model="product.price" maxlength="10" ui-number-mask="2" min="1.00" max="999999.99" ng-disabled="edit" required>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label class="color-input-product">Quantidade</label>
+                            <input class="color-input-product" ng-model="product.quantity" name="quantity" min="1" max="9999" maxlength="4" ui-number-mask="0" ng-disabled="edit" required>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label class="color-input-product">Categoria {{product.category_id}}</label>
+                            <md-select ng-model="product.category_id" name="category" ng-disabled="edit" class="color-input-product" required>
+                                <md-option ng-repeat="category in categories" ng-value="category.category_id">
+                                    {{category.description}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block color-input-product">
+                        <label class="color-input-product">Descrição</label>
+                        <textarea class="color-input-product" ng-model="product.description" name="description" md-maxlength="150" maxlength="150"  minlength="3" rows="3" md-select-on-focus ng-disabled="edit" required></textarea>
+                    </md-input-container>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="submit" class="md-raised md-primary" ng-disabled="productForm.$invalid" ng-if="!edit">
+                Salvar
+            </md-button>
+            <md-button ng-click="changeOp()" class="md-raised bottom-edit" ng-if="edit">
+                Editar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,37 @@
+<div class="md-padding animated fadeIn" layout-gt-xs="row" layout="row" md-theme="barberShop">
+    <div flex-gt-xs="15" layout-gt-xs="column" layout="column" hide-xs class="text-left">
+        <h4>Categorias</h4>
+        <fieldset class="standard">
+            <div layout="row" layout-wrap flex>
+                <div flex="100" ng-repeat="category in sc.categories">
+                    <md-checkbox ng-click="sc.selectCategory(category.category_id)">
+                        {{ category.description }}
+                    </md-checkbox>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div flex-xs flex-gt-xs="85" layout-gt-xs="column" layout="column" layout-align="center center">
+        <div flex-xs flex-gt-xs="100" class="search-products width-100 text-center-div">
+            <md-input-container class="md-icon-float md-bluck md-accent filter-box width-50 text-left-label">
+                <md-icon md-font-set="material-icons">search</md-icon>
+                <input ng-model="sc.filtro" type="text" placeholder="Buscar" ng-model-options="{debounce: 1000}">
+            </md-input-container>
+        </div>
+        <div flex-xs flex-gt-xs="100" class="products-flex">
+            <md-card class="md-card-product click-card margin-card-product" ng-click="sc.openProduct($event, product)" ng-repeat="product in sc.products | filter: sc.filtro | categoryFilter: sc.selectedCategory | orderBy: '-quantity'">
+                <md-tooltip md-direction="top" md-delay="600">
+                    Click para comprar
+                </md-tooltip>
+                <img ng-src="{{sc.checkImg(product.img)}}" class="md-card-image img-product">
+                <md-card-title class="max-heigth padding-shop">
+                    <span class="md-headline title-product abbreviation">{{ product.name }}</span>
+                </md-card-title>
+                <md-card-content class="text-description padding-shop">
+                    <p ng-if="product.quantity" class="abbreviation">{{ product.price | currency: 'R$ ' }}</p>
+                    <p ng-if="!product.quantity">Indisponível</p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+</div>

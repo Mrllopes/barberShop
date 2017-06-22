@@ -1,0 +1,57 @@
+<div class="animated fadeIn">
+    <h3 class="text-center">Carrinho</h3>
+    <div layout-gt-xs="row" layout-align-gt-xs="center start" layout="column" ng-cloak>
+        <md-list flex="100" flex-gt-xs="85" class="md-dense background-cart no-paggind">
+            <md-list-item class="md-3-line cart-border-top padding-cart" data-ng-repeat="product in cc.products" ng-if="cc.products.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align-gt-xs="center center" layout-align="center stretch">
+                    <div flex-xs flex-gt-xs="5" class="text-right margin-cart-small-screen" hide-gt-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="cc.removeFromCart($event, product)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                    <div flex-xs flex-gt-xs="5" class="text-center">
+                        <img hide-xs ng-src="./app/img/product-default.jpg" class="img-product-cart">
+                    </div>
+                    <h3 flex-gt-xs="50" flex="100" class="name-product margin-cart-small-screen align-product">{{ product.name }}</h3>
+                    <div flex-gt-xs="20" flex="100" layout="row" layout-align="center center" class="margin-cart-small-screen">
+                        <div flex="20">
+                            <md-button class="md-fab md-mini fab-button-cart remove-button" aria-label="remove" ng-click="cc.removeProduct(product)" ng-disabled="product.quantityToBuy == 1">
+                                <i class="material-icons">remove</i>
+                            </md-button>
+                        </div>
+                        <h3 flex="20" class="text-center">x{{ product.quantityToBuy }}</h3>
+                        <div flex="20" class="text-right">
+                            <md-button class="md-fab md-mini fab-button-cart add-button" aria-label="add" ng-click="cc.addProduct(product)" ng-disabled="product.quantityToBuy == product.quantity">
+                                <i class="material-icons">add</i>
+                            </md-button>
+                        </div>
+                    </div>
+                    <h3 flex-gt-xs="20" flex="100" class="price-cart text-right margin-cart-small-screen">{{ product.sum | currency: 'R$ '}}</h3>
+                    <div flex-xs flex-gt-xs="5" class="text-right" hide-xs>
+                        <md-button class="md-fab md-mini fab-button-cart close-button" aria-label="add" ng-click="cc.removeFromCart($event, product)">
+                            <i class="material-icons">close</i>
+                        </md-button>
+                    </div>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top" ng-if="!cc.products.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center center">
+                    <h3 flex-gt-xs="100" flex="100" class="name-product text-center">Carrinho vazio</h3>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-3-line cart-border-top sum-product" ng-if="cc.products.length">
+                <div class="md-list-item-text" layout-gt-xs="row" layout="column" layout-align="center stretch">
+                    <h3 flex-gt-xs="95" flex="100" class="price-cart text-right font-weight-900">Total: {{ cc.total | currency: 'R$ '}}</h3>
+                     <div flex-xs flex-gt-xs="5" class="text-right"></div>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div layout-gt-xs="row" layout-align-gt-xs="center end" layout="column" ng-if="cc.products.length">
+        <div flex="100" flex-gt-xs="85" class="text-right">
+            <md-button ng-click="cc.confirmPurchase($event)" class="md-raised md-primary">
+               Finalizar compra
+            </md-button>
+        </div>
+    </div>
+</div>
