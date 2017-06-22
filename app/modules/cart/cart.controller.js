@@ -101,10 +101,8 @@
                                 .showToast('Produto removido');
                             sumTotalPrice();
                         })
-                    console.log('depois', cc.products);
                 }
             });
-            console.log('antes', cc.products);
         }
 
         /**
@@ -121,7 +119,6 @@
                 .cancel('Cancelar');
 
             $mdDialog.show(confirm).then(function () {
-                console.log('antes', cc.allProducts)
                 angular.forEach(cc.products, function (product) {
                     angular.forEach(cc.allProducts, function (productShop) {
                         if (product.product_id == productShop.product_id) {
@@ -155,7 +152,6 @@
                 .then(function (response) {
                     cc.products = response
                     sumTotalPrice();
-                    console.log(response)
                 })
         }
 
@@ -169,7 +165,6 @@
          * @description broadcast to call function getProducts on the logout
          */
         $scope.$on('getProductsLogout', function () {
-            console.log('getProductsLogout');
             cc.products = [];
         });
     }

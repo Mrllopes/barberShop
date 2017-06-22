@@ -42,7 +42,6 @@
 
             $mdDialog.show(remove).then(function () {
                 var toRemove = pc.products.findIndex(x => x.product_id === product.product_id);
-                console.log('toRemove', toRemove)
                 if (toRemove > -1) {
                     pc.products.splice(toRemove, 1);
                     ProductsService
@@ -51,10 +50,8 @@
                             ToastService
                                 .showToast('Produto removido');
                         })
-                    console.log('depois', pc.products);
                 }
             });
-            console.log('antes', pc.products);
         }
 
         /**
@@ -104,7 +101,6 @@
 
             function init() {
                 if ($scope.type == 0) {
-                    console.log('teste', $scope.type)
                     $scope.edit = false;
                 } else {
                     $scope.edit = true;
@@ -151,11 +147,9 @@
              */
             function editProduct(product) {
                 var products = angular.copy($scope.products)
-                console.log('antes', $scope.products[0])
                 angular.forEach(products, function (element, idx) {
                     if (element.product_id == product.product_id) {
                         $scope.products[idx] = product;
-                        console.log('depois', $scope.products[idx])
                         callServe(product);
                         return 1;
                     }

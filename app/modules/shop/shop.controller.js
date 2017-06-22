@@ -23,7 +23,6 @@
             LoginService
                 .getLogin()
                 .then(function (response) {
-                    console.log('aqui', response)
                     if (response) sc.user = true
                     else sc.user = false;
                 })
@@ -47,7 +46,6 @@
          * @description broadcast to check user logged
          */
         $scope.$on('userlogged', function (event, args) {
-            console.log('userlogged2', args)
             sc.user = args;
         });
 
@@ -69,7 +67,6 @@
             else {
                 sc.selectedCategory.push(item);
             }
-            console.log(sc.selectedCategory);
         };
 
         /**
@@ -78,7 +75,6 @@
         */
         function openProduct(ev, product) {
             if (sc.user) {
-                console.log(product)
                 $mdDialog.show({
                     controller: DialogProductController,
                     templateUrl: 'app/modules/shop/views/dialog.product.html',
@@ -91,7 +87,6 @@
                     }
                 })
                     .then(function (userLogged) {
-                        console.log('userLogged', userLogged)
                         sc.userLogged = userLogged;
 
                     }, function () {
@@ -136,7 +131,6 @@
                     .getCart()
                     .then(function (response) {
                         var productChosen = response.find(x => x.product_id === $scope.product.product_id);
-                        console.log('productChosen', productChosen, productChosen && productChosen.length > 0);
                         if (!productChosen) {
                             response.push(obj);
                             $rootScope.$broadcast('cartNum', response.length);
@@ -148,9 +142,7 @@
                                     $mdDialog.hide();
                                     $location.path('/carrinho');
                                 })
-                            console.log('1');
                         } else {
-                            console.log('2');
                             ToastService
                                 .showToast('Produto já contido no carrinho');
                             $mdDialog.hide();

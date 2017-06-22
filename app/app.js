@@ -34,16 +34,13 @@ require('angular-input-masks');
 
     function routeCheck($rootScope, $location, $mdToast, $mdMedia, LoginService, ToastService) {
         $rootScope.$on("$routeChangeStart", function (evt, to, from) {
-            console.log('routeConfig', to, to.route_name);
             if (to.authorize === true) {
                 LoginService
                     .getLogin()
                     .then(function (response) {
-                        console.log('aqui teste', response);
                         if (response) {
                             if (to.access_level.indexOf(response.access_level) == -1) {
                                 $location.path("/");
-                                console.log('aqui teste 2', response);
                                 ToastService
                                     .showToast('Permissão negada');
                             }

@@ -44,14 +44,12 @@
                 ProductsService
                     .getProducts()
                     .then(function (response) {
-                        console.log('response', response)
                         var findCategory = response.findIndex(x => x.category_id === category.category_id);
                         if (findCategory > -1) {
                             ToastService
                                 .showToast('Categoria não pode ser excluida');
                         } else {
                             var toRemove = cc.categorys.findIndex(x => x.category_id === category.category_id);
-                            console.log('toRemove', toRemove)
                             if (toRemove > -1) {
                                 cc.categorys.splice(toRemove, 1);
                                 CategoriesService
@@ -60,12 +58,10 @@
                                         ToastService
                                             .showToast('Categoria removida');
                                     })
-                                console.log('depois', cc.categorys);
                             }
                         }
                     })
             });
-            console.log('antes', cc.categorys);
         }
 
         /**
@@ -114,7 +110,6 @@
 
             function init() {
                 if ($scope.type == 0) {
-                    console.log('teste', $scope.type)
                     $scope.edit = false;
                 } else {
                     $scope.edit = true;
@@ -154,11 +149,9 @@
              */
             function editProduct(category) {
                 var categorys = angular.copy($scope.categorys)
-                console.log('antes', $scope.categorys[0])
                 angular.forEach(categorys, function (element, idx) {
                     if (element.category_id == category.category_id) {
                         $scope.categorys[idx] = category;
-                        console.log('depois', $scope.categorys[idx])
                         callServe(category);
                         return 1;
                     }
